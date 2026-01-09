@@ -48,7 +48,7 @@ function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="Enter your email"
+                placeholder="your.email@example.com"
               />
             </div>
             <PasswordInput

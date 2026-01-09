@@ -85,7 +85,7 @@ function Register() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="Enter your email"
+                placeholder="your.email@example.com"
               />
             </div>
 
