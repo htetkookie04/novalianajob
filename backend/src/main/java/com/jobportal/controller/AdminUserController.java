@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/users")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "https://novalianajob.netlify.app"})
 @PreAuthorize("hasRole('SUPER_ADMIN')")
 public class AdminUserController {
 
