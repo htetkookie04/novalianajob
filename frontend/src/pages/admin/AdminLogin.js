@@ -49,7 +49,7 @@ function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="admin@novaliana.com"
+                  placeholder="Enter your email"
                 />
               </div>
 
