@@ -68,12 +68,6 @@ function Login() {
             >
               {loading ? 'Logging in...' : 'Login'}
             </button>
-
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
-              <p>
-                Don't have an account? <Link to="/register">Register here</Link>
-              </p>
-            </div>
           </form>
         </div>
       </div>
