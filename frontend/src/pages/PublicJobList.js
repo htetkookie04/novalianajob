@@ -70,17 +70,17 @@ function PublicJobList() {
                   Admin
                 </Link>
               )}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
+              <button
+                type="button"
+                onClick={() => {
                   logout();
                   navigate('/');
                 }}
                 className="public-link"
+                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
               >
                 Logout
-              </a>
+              </button>
             </>
           ) : (
             <Link to="/admin/login" className="public-link">
@@ -208,12 +208,22 @@ function PublicJobList() {
         <div className="container public-footer__inner">
           <div>© {new Date().getFullYear()} Novaliana. All rights reserved.</div>
           <div className="public-footer__links">
-            <a className="public-link" href="#" onClick={(e) => e.preventDefault()}>
+            <button
+              type="button"
+              className="public-link"
+              onClick={(e) => e.preventDefault()}
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
               Privacy Policy
-            </a>
-            <a className="public-link" href="#" onClick={(e) => e.preventDefault()}>
+            </button>
+            <button
+              type="button"
+              className="public-link"
+              onClick={(e) => e.preventDefault()}
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
               Terms of Service
-            </a>
+            </button>
           </div>
         </div>
       </footer>

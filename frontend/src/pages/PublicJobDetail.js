@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import Navbar from '../components/Navbar';
@@ -11,11 +11,7 @@ function PublicJobDetail() {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchJob();
-  }, [id]);
-
-  const fetchJob = async () => {
+  const fetchJob = useCallback(async () => {
     try {
       const response = await api.get(`/jobs/${id}`);
       setJob(response.data);
@@ -24,7 +20,11 @@ function PublicJobDetail() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchJob();
+  }, [fetchJob]);
 
   if (loading) {
     return (

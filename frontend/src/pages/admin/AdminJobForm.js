@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
 import '../PublicJobList.css';
@@ -19,13 +19,7 @@ function AdminJobForm() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (isEdit) {
-      fetchJob();
-    }
-  }, [id]);
-
-  const fetchJob = async () => {
+  const fetchJob = useCallback(async () => {
     try {
       const response = await api.get(`/jobs/${id}`);
       const job = response.data;
@@ -41,7 +35,13 @@ function AdminJobForm() {
       console.error('Error fetching job:', error);
       setError('Error loading job');
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    if (isEdit) {
+      fetchJob();
+    }
+  }, [isEdit, fetchJob]);
 
   const handleChange = (e) => {
     setFormData({
