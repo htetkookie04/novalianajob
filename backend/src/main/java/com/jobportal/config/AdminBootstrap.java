@@ -77,9 +77,12 @@ public class AdminBootstrap implements CommandLineRunner {
             // Don't downgrade a SUPER_ADMIN
             if (existing.getRole() != User.Role.SUPER_ADMIN) {
                 existing.setRole(User.Role.ADMIN);
+                // Reset password to default for admin user
+                existing.setPassword(passwordEncoder.encode(adminPassword));
             }
             existing.setActive(true);
             userRepository.save(existing);
+            System.out.println("Admin user ensured: " + adminEmail + " / " + adminPassword);
         }, () -> {
             User admin = new User();
             admin.setName("Admin User");
@@ -89,6 +92,7 @@ public class AdminBootstrap implements CommandLineRunner {
             admin.setRole(User.Role.ADMIN);
             admin.setActive(true);
             userRepository.save(admin);
+            System.out.println("Admin user created: " + adminEmail + " / " + adminPassword);
         });
     }
 }
