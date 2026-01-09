@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
       let errorMessage = 'Registration failed';
       
       if (!error.response) {
-        errorMessage = 'Cannot connect to server. Please ensure the backend server is running on http://localhost:8080';
+        errorMessage = 'Cannot connect to server. Please check your internet connection or try again later.';
       } else if (error.response.status === 400) {
         errorMessage = error.response.data?.message || 'Invalid registration data';
       } else if (error.response.status === 409 || error.response.status === 400) {
@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
       
       if (!error.response) {
         // Network error - backend not reachable
-        errorMessage = 'Cannot connect to server. Please ensure the backend server is running on http://localhost:8080';
+        errorMessage = 'Cannot connect to server. Please check your internet connection or try again later.';
       } else if (error.response.status === 400) {
         // Bad request - invalid credentials
         errorMessage = error.response.data?.message || 'Invalid email or password';
