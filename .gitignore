@@ -4,6 +4,8 @@ backend/.classpath
 backend/.project
 backend/.settings/
 backend/.idea/
+backend/*.log
+backend/uploads/
 
 # Frontend
 frontend/node_modules/
@@ -26,4 +28,3 @@ frontend/yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
-
